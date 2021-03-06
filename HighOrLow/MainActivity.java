@@ -14,6 +14,11 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     int randomNumber;
+    // add a random generator
+    public void generateRandomNumber() {
+        Random rand = new Random();
+        randomNumber = rand.nextInt(20) + 1;
+    }
 
     public void guessFunction(View view) {
 
@@ -27,7 +32,8 @@ public class MainActivity extends AppCompatActivity {
         } else if (guessValue < randomNumber) {
             message = "higher";
         } else {
-            message = "You got it!";
+            message = "You got it! Try it again!";
+            generateRandomNumber();
         }
 
         textViewHint.setText(message);
@@ -44,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // where you create a random number
-        Random rand = new Random();
-        randomNumber = rand.nextInt(20) + 1;
+        generateRandomNumber();
     }
 }
