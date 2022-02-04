@@ -1,6 +1,7 @@
 # this program will simulate how to choose 6 'yao' in i-ching
 
 import random
+from tkinter.scrolledtext import ScrolledText
 from gua64keys import *
 from readGua import *
 from tkinter import *
@@ -100,7 +101,7 @@ img_gua1 = PhotoImage(file = 'guaImage/02.png')
 imgBtn0 = Button(window, image=img_gua0)
 imgBtn1 = Button(window, image=img_gua1)
 
-txtGua = Text(window, height=20, width=50)
+txtGua = ScrolledText(window, height=20, width=50)
 
 runBtn = Button(window)
 soundBtn = Button(window)
