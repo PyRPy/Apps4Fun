@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width", initial-scale="1.0">
+        <title>Hit a Worm</title>
+
+        <style>
+            html, body  { padding: 0px; border: 0px; margin: 0px}
+            div         {width:360px; color:brown; margin:auto}
+            h1,p        { text-align:center}
+            table       { background: tan; border-collapse: collapse }
+            td.hole    { background: url(hole.png)}
+            td.rank     { background: brown; color:white}
+            img.worm    { visibility: hidden}
+        </style>
+    </head>
+
+    <body>
+        <div>
+            <h1>Hit-a-Worm!</h1>
+            <p>A challenging fun game of skill and speed.</p>
+
+            <ul>
+                <li>Ten times the worm will pop out</li>
+                <li>Hit as many as you can</li>
+                <li>Use Start button to begin...</li>
+            </ul>
+
+            <table>
+                <tr>
+                    <td class="hole"><img class="worm" src="worm.png" alt="Wrom"></td>
+                    <td class="hole"><img class="worm" src="worm.png" alt="Wrom"></td>
+                    <td class="hole"><img class="worm" src="worm.png" alt="Wrom"></td>
+                </tr>
+                    
+                <tr>
+                    <td class="hole"><img class="worm" src="worm.png" alt="Wrom"></td>
+                    <td class="hole"><img class="worm" src="worm.png" alt="Wrom"></td>
+                    <td class="hole"><img class="worm" src="worm.png" alt="Wrom"></td>
+                </tr>
+
+                <tr>
+                    <td class="rank" colspan="3">
+                        <button id="startButton">Start</button>
+                        Hits: <strong id="scoreBoard">0</strong>
+                    </td>
+                </tr>
+            </table>
+
+            <p>Author:
+                <a href="https://www.ineasysteps.com" >In Easy Steps</a>
+            </p>
+
+        </div>
+    
+        <script>
+            var worms = document.getElementsByClassName("worm");
+            var board = document.getElementById("scoreBoard");
+            var start = document.getElementById("startButton");
+
+            start.addEventListener("click", startGame );
+
+            var i = 0;
+            while (i < worms.length) {
+                worms[i].addEventListener("mouseup", tapOrClick);
+                worms[i].addEventListener("touchend", tapOrClick);
+                i++;
+            }
+
+            function tapOrClick (event) {
+                event.preventDefault();
+                board.innerText = parseInt(board.innerText) + 1;
+                return false;
+            }
+
+            function getRandom( min, max ) {
+                return Math.floor( Math.random() * ( max - min ) + min);
+            }
+
+            function playGame( saved, counter ) { 
+                var index = getRandom( 0, worms.length );
+                if(saved === index) {
+                    playGame(index, counter);
+                } else {
+                    if (counter > 9) {
+                        board.innerText += "...Game Over";
+                        start.disabled = false;
+                        return true;
+                    } else {
+                        counter++;
+                        saved = index;
+                        showWorm(index, counter);
+                    }
+                }
+            }
+
+            function showWorm (index, counter ) {
+                worms[index].style.visibility = "visible";
+
+                setTimeout(
+                    function() {
+                        worms[index].style.visibility="hidden";
+                        playGame(index, counter);
+                    }, getRandom(500, 1000)
+                );
+            }
+
+            function startGame() {
+                start.disabled = true;
+                board.innerText = 0;
+                playGame( null, 0 );
+            }
+    
+    
+        </script>
+
+    </body>
+
+</html>
