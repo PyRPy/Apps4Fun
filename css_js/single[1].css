@@ -1,0 +1,9 @@
+@import url(base[0].css);
+
+h1, h2 {color : mediumpurple; }
+footer {padding: 10px; font: italic 0.75em sans-serif ; color : MediumPurple ;}
+
+li:nth-child(1) > a {background: mediumpurple; color:white; }
+
+aside:before {content:open-quote; }
+aside:after {content:close-quote; }

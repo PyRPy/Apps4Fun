@@ -1,0 +1,13 @@
+@import url( base[0].css );
+
+h1, h2 { color : mediumpurple ; }
+footer { padding : 10px 0 ; font : italic 0.75em sans-serif ; color : mediumpurple ; }
+
+li: :nth-child(3) > a { backgroup : MediumPurple ; color : white ; }
+
+h1 { text-align: center;}
+
+span#first { float : left ; width : 30% ; border-right : 1px solid mediumpurple; padding-right : 5px ; }
+span#second { float : left ; width : 40% ; border-right : 1px solid mediumpurple; padding : 0 10px ; }
+aside { float : left ; width : 30% ; padding-left : 10px ; }
+footer { clear : both ; text-align: center ; }

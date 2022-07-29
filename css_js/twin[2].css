@@ -1,0 +1,12 @@
+@import url( base[0].css );
+
+h1, h2 { color : MediumPurple ; }
+footer { padding : 10px ; font : italic 0.75em sans-serif ; color : mediumpurple ; }
+
+li:nth-child(2) > a { background: mediumpurple ; color : white; }
+
+main > p { float : left ; width : 70% ; border-right : 1px solid mediumpurple ; }
+
+aside { float : left ; width : 30% ; paddig-left : 10px ; }
+
+footer { clear : both ; }

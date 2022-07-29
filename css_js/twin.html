@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Import Stylesheets</title>
+        <style>
+            @import url(base[0].css);
+        </style>
+
+        <style>
+            @import url(single[1].css);
+        </style>
+
+        <style>
+            @import url(twin[2].css);
+        </style>
+
+    </head>
+    <body>
+        <h1>Cascading style sheets</h1>
+        <ul>
+            <li><a href="javascript:applyStyle(1)">1-Column</a></li>
+            <li><a href="javascript:applyStyle(2)">2-Column</a></li>
+            <li><a href="javascript:applyStyle(3)">3-Column</a></li>
+            <li><a href="javascript:darkMode()">Dark Mode</a></li>
+        </ul>
+
+        <h2>What is CSS?</h2>
+        <main>
+            <p>
+                <span id="first">Cascading Style Sheets are used to control the presentational aspects of HTML documents.</span>
+                <span id="second">CSS was created by the World Wide Web consortium to regain control of document markup.</span>
+            </p>
+            <aside>The World Wide Web Consortium (W3C) overseas web standards.</aside>
+        </main>
+
+        <footer>
+            <p>Styled by CSS in easy steps book.</p>
+        </footer>
+
+        <script>
+            // here to change the style of the webpage
+            let node = document.createElement("style");
+            node.innerText = "h1{color:Lime;} body{background:Black; color:white;}"
+            document.head.appendChild(node);
+            let sheet = document.styleSheets[document.styleSheets.length - 1];
+
+            // toggle disable
+            function darkMode() {
+                sheet.disabled = (sheet.disabled === true) ? false : true ;
+            }
+
+            function applyStyle(n) {
+                // disable all 
+                for ( let i=0; i<document.styleSheets.length; i++ ) {
+                    document.styleSheets[i].disabled = true ;
+                }
+
+                // enable selected one 
+                document.styleSheets[n].disabled = false ;
+            }
+            // load style when open the browser
+            applyStyle(2);
+
+        </script>
+    </body>
+</html>

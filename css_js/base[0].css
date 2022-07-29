@@ -1,0 +1,16 @@
+* { margin : 0; padding:0; box-sizing: border-box; }
+
+h1, h2, main, footer {margein : 0, 0, 0, 5px }
+
+ul { list-style-type: none; margin : 0 ; padding : 0; background: thistle; font : 1em sans-serif;
+width: 100%; overflow: hidden; }
+
+li a {
+    display: block; text-align: center; text-decoration: none; color: black; padding:10px;
+    float: left;
+}
+
+li a:hover { background: purple;
+             color: white;}
+
+li:last-child { float : right; }
